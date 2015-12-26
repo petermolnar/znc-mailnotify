@@ -170,7 +170,7 @@ class CNotifoMod : public CModule
 			strftime(iso8601, 20, "%Y-%m-%d %H:%M:%S", timeinfo);
 
 			// forge the mailcmd
-			CString cmd = "echo -e \"Subject:" + options["email_subject"] + "\n" + options["email_header"] + "\n" + message + "\n\" | sendmail " + options["email_address"];
+			CString cmd = "/bin/echo -e \"" + message + "\n\" | /usr/bin/mail -s " + options["email_subject"] + " " + options["email_address"];
 
 			// create a new exec thread
 			int pid;
